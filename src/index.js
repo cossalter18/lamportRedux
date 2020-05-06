@@ -11,14 +11,20 @@ const firstReducerInitialState = 0;
 
 const firstReducer = ( state = firstReducerInitialState, action ) =>{
   console.log( 'in firstReducer:', 'state:', state, 'action:', action );
-  if( action.type === 'click' ){
-    return state + 1;
+  if(action.type === 'pickup'){
+    console.log('picking up', action.payload);
+    state = state + action.payload
+    return state;
   }
-  else if( action.type === 'unclick' ){
-    return state - 1;
+  else if(action.type === 'drop'){
+    console.log('dropping', action.payload); 
+    state = state - action.payload
+    return state;
   }
-  else if( action.type === 'taco' ){
-    return state + 10;
+  else if (action.type === 'scoop') {
+    console.log('scooping', action.payload);
+    state = state + action.payload
+    return state;
   }
   return state;
 } // firstReducer

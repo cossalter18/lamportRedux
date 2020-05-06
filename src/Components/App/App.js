@@ -2,29 +2,31 @@ import React from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import RockPicker from '../RockPicker/RockPicker'
-class App extends React.Component{
+class App extends React.Component {
 
- 
 
-  componentDidMount(){
-    console.log( 'in componentDidMount, props:', this.props );
+
+  componentDidMount() {
+    console.log('in componentDidMount, props:', this.props);
   } // end componentDidMount
 
   render() {
-    console.log( this.props );
+    console.log(this.props);
     return (
       <div className="App">
         <header className="App-header">
           <h2>This App Rocks</h2>
-          <p>Rocks: { this.props.reduxState }</p>
+          <p>Rocks: {this.props.reduxState}</p>
         </header>
-        <RockPicker />
+        <RockPicker dispatch={this.props.dispatch} />
+        <RockPicker dispatch={this.props.dispatch} />
+        <RockPicker dispatch={this.props.dispatch} />
 
       </div>
     ); // end return
   } //end render
 } // end component
 
-const putReduxStateOnProps = ( reduxState ) => ( { reduxState } );
+const putReduxStateOnProps = (reduxState) => ({ reduxState });
 
-export default connect( putReduxStateOnProps )(App);
+export default connect(putReduxStateOnProps)(App);
